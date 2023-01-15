@@ -8,26 +8,23 @@ import java.util.Arrays;
 
 public class FileInputStreamClass {
     public static void main(String[] args) {
-        FileInputStream inputStream = null;
         try {
-            inputStream = new FileInputStream("src/main/java/org/example/Files/data.txt");
+        FileInputStream inputStream = new FileInputStream("src/main/java/org/Files/data.txt");
             int i= inputStream.read();
             String sentence = "";
-            while (i!=0){
-                System.out.println((char)i);
+            while (i!=-1){
+                System.out.println((char)i);// okur ve cumleyi yukaridan asagiya siralar
                 sentence+=(char)i;
                 i=inputStream.read();
             }
             System.out.println("This is a String");
-            System.out.println(sentence);
+            System.out.println(sentence);//okur ve yan yana yazdirir
 
             sentence=sentence.replace("ASCII","AYSE");
             System.out.println(sentence);
 
             String[] string= sentence.split(" ");
             System.out.println(Arrays.toString(string));
-
-
 
         }catch (FileNotFoundException e){
             throw new RuntimeException(e);
